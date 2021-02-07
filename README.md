@@ -38,11 +38,11 @@ wget https://community.multichains.org/_easysync_db.zip
 import-dump.sh ./_easysync_db.zip
 ```
 
-Once the dump is imported, start the relay using ```docker-compse up -d```
+Once the dump is imported, start the relay using ```docker-compose up -d```
 
 ## How can I see what the relay is doing?
 
-```docker-compose logs -f ol-relay --tail=1000```
+```docker-compose logs --tail=1000```
 
 Or you could connect to the relay's UI which is exposed on port 9090 (if you followed the instructions above).
 
