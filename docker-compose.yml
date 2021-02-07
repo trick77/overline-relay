@@ -10,7 +10,6 @@ services:
       - BC_NETWORK=main
       - BC_TUNNEL_HTTPS=false
       - BC_LOG_WAYPOINT_RECORD=true
-      - BC_MAX_CONNECTIONS=25
       - NODE_OPTIONS=--max_old_space_size=8192
     mem_limit: 9999m
     mem_reservation: 8900m
