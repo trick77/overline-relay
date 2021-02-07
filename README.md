@@ -14,9 +14,10 @@ You should.
 
 ## Why would you want to run a relay-only Overline node?
 
-1. To use it as your private Interchange backend
-2. To help the network
-3. Both
+1. To use it as your private backend for Interchange.
+2. To help the network.
+3. To use the SDK or JSON API to interact with the blockchain.
+4. All of the above.
 
 ## How to run it
 
