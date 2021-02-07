@@ -34,12 +34,8 @@ then
     exit 1
 fi
 
-if [ -f "./cleanup.sh" ]; then
-    sh ./cleanup.sh || true
-else
-  echo -e "${GREEN}Stopping current ${bcnode_container_name} container if running...${NC}"
-  docker rm -f ${bcnode_container_name} > /dev/null 2>&1 || true
-fi
+echo -e "${GREEN}Stopping current ${bcnode_container_name} container if running...${NC}"
+docker rm -f ${bcnode_container_name} > /dev/null 2>&1 || true
 
 existing_volume=$(docker volume ls -q -f name=${database_volume_name} | grep -w ${database_volume_name}) || true
 if [ -z ${existing_volume} ]; then
@@ -83,5 +79,4 @@ docker rm -f importdb > /dev/null 2>&1
 rm -rf ${tmp_dir}
 
 echo -e "${GREEN}Done."
-echo -e "${YELLOW}Make sure to mount a named Docker volume using \"--mount source=db,target=/bc/_data\" when starting the container!${NC}"
-echo -e "You can start the ${bcnode_container_name} container now!${NC}"
+echo -e "You can start the container now!${NC}"
