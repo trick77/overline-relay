@@ -12,7 +12,7 @@ You should.
 - docker-compose
 - 10G RAM (it may work with less but may crash every now and then)
 
-## Why would you want to run a relay-only Overline node?
+## Why would I want to run a relay-only Overline node?
 
 1. To use it as your private backend for Interchange.
 2. To help the network.
