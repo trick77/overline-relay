@@ -1,0 +1,39 @@
+version: '2.4'
+services:
+  ol-relay:
+    container_name: ol-relay
+    image: blockcollider/bcnode:latest
+    networks:
+      - web
+      - default
+    environment:
+      - BC_NETWORK=main
+      - BC_TUNNEL_HTTPS=false
+      - BC_LOG_WAYPOINT_RECORD=true
+      - BC_MAX_CONNECTIONS=25
+      - NODE_OPTIONS=--max_old_space_size=8192
+    mem_limit: 9999m
+    mem_reservation: 8900m
+    command: start --relay-mode --rovers --rpc --ws --ui --node --scookie "${SCOOKIE:-changeme}"
+    volumes:
+      - db:/bc/_data
+    ports:
+      - "16061:16061/tcp"
+      - "16061:16061/udp"
+      #- "9090:3000" # Uncomment if you're not using Traefik, which you're most likely not
+    restart: always
+    expose:
+      - "3000"
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.basic.frontend.rule=Host:relay.trick77.dev"
+      - "traefik.basic.port=3000"
+      - "traefik.basic.protocol=http"
+
+volumes:
+  db:
+
+networks:
+  web:
+    external: true
