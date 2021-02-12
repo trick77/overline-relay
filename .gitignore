@@ -2,3 +2,4 @@
 export-dump.sh
 extract-and-publish.sh*
 _easysync_db.zip
+bcnode-db-*.tar.gz
