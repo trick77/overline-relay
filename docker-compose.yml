@@ -1,10 +1,10 @@
 version: '2.4'
 services:
-  ol-relay:
-    container_name: ol-relay
+  ol-node:
+    container_name: ol-node
     image: blockcollider/bcnode:latest
     networks:
-      - web
+      #- web
       - default
     environment:
       - BC_NETWORK=main
@@ -32,6 +32,7 @@ services:
 
 volumes:
   db:
+    name: ol-db
 
 networks:
   web:

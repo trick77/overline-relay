@@ -15,8 +15,8 @@ if [ $# -eq 0 ]
 fi
 
 database_location=$1
-bcnode_container_name=ol-relay
-database_volume_name=ol-relay_db
+bcnode_container_name=ol-node
+database_volume_name=ol-db
 
 if [ ! -f "${database_location}" ]; then
   echo -e "${RED}Error: Missing import file ${database_location}${NC}"
